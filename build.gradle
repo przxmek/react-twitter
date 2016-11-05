@@ -1,0 +1,33 @@
+apply plugin: 'java'
+
+group 'twitterreact'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    compile "io.reactivex:rxjava:1.0.0-rc.10"
+
+//    compile "org.twitter4j:twitter4j-core:4.0.5"
+    compile "org.twitter4j:twitter4j-async:4.0.5"
+    compile "org.twitter4j:twitter4j-stream:4.0.5"
+
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
+    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.21'
+
+    testCompile "junit:junit:4.11"
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+apply plugin: 'application'
+
+mainClassName = "twitterreact.Application"
+run {
+    standardInput = System.in
+}
